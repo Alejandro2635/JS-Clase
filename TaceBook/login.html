@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+<body>
+    <div style="margin-bottom: 10px; padding: 10px;">
+        <input type="text" id="name_login" />
+        <input type="text" id="password_login" />
+        <button id="login" onclick="login()" style="text-align: center; width: 100px;">LOGIN</button>
+    </div>
+    <div style="margin-bottom: 10px; padding: 10px;">
+        <input type="text" id="name_register" />
+        <input type="text" id="password_register" />
+        <button id="register" onclick="register()" style="text-align: center; width: 100px;">REGISTER</button>
+    </div>
+
+    <script>
+        var users = [];
+
+        class User {
+            constructor(name, password) {
+                this.name = name;
+                this.password = password;
+            }
+        }
+
+        function login() {
+            var name = document.getElementById("name_login").value;
+            var password = document.getElementById("password_login").value;
+            var found = false;
+
+            for (var i = 0; i < users.length; i++) {
+                if (users[i].name == name && users[i].password == password) {
+                    found = true;
+                    break;
+                }
+            }
+
+            if (found === true) {
+                localStorage.setItem("name", name);
+                window.location.assign("prueba.html");
+            } else {
+                alert("not found");
+            }
+
+            document.getElementById("name_login").value = "";
+            document.getElementById("password_login").value = "";
+        }
+
+        function register() {
+            var name = document.getElementById("name_register").value;
+            var password = document.getElementById("password_register").value;
+            var found = false;
+
+            for (var i = 0; i < users.length; i++) {
+                if (users[i].name == name) {
+                    found = true;
+                    break;
+                }
+            }
+
+            if (found) {
+                alert("Usa otro nombre");
+            } else {
+                var newUser = new User(name, password);
+                users.push(newUser);
+                document.getElementById("name_register").value = "";
+                document.getElementById("password_register").value = "";
+            }
+        }
+    </script>
+</body>
+
+</html>

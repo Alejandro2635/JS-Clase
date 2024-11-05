@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>Cálculo de areas: </h2>
+    <div>
+        <p>Lado</p>
+        <input type="text" id="ladoCuadrado"></input>
+        <p id="areaCuadrado">Area Cuadrado: </p>
+        <button onclick="areaCuadrado()">CALCULO CUADRADO</button>
+        <hr>
+        <p>Base y Altura</p>
+        <input type="text" id="baseTriangulo"></input>
+        <input type="text" id="alturaTriangulo"></input>
+        <p id="areaTriangulo">Area Triangulo: </p>
+        <button onclick="areaTriangulo()">CALCULO TRIANGULO</button>
+        <hr/>
+        <p>Radio Circulo</p>
+        <input type="text" id="radioCirculo"></input>
+        <p id="areaCirculo">Area Circulo: </p>
+        <button onclick="areaCirculo()">CALCULO CIRCULO</button>
+    </div>
+    <script>
+        const PI = 3.14;
+
+        function areaCuadrado(){
+            var ladoCuadrado = document.getElementById("ladoCuadrado").value;
+
+            document.getElementById("areaCuadrado").innerHTML = "Area Cuadrado: " + (ladoCuadrado * ladoCuadrado);
+        }
+
+        function areaTriangulo(){
+            var baseTriangulo = document.getElementById("baseTriangulo").value;
+            var alturaTriangulo = document.getElementById("alturaTriangulo").value;
+            document.getElementById("areaTriangulo").innerHTML = "Area Triangulo: " +(baseTriangulo*alturaTriangulo)/2;
+        }
+
+        function areaCirculo(){
+            var radio = document.getElementById("radioCirculo").value;
+            document.getElementById("areaCirculo").innerHTML = "Area Circulo: "+(PI * (radio**2));
+        }
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+<body>
+    <input id="date1">
+    <input id="date2">
+    <input type="button" value="click" onclick="mostrarFecha()"/>
+    <p id="result"></p>
+
+    <script>        
+
+        const result = document.getElementById("result");
+
+        var mostrarFecha = () => {
+            const data1 = document.getElementById("date1").value.split("/").map(word => word.trim());
+            const data2 = document.getElementById("date2").value.split("/").map(word => word.trim());
+            const meses = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+
+            const day1 = data1[0];
+            const day2 = data2[0];
+
+            const month1 = data1[1];
+            const month2 = data2[1];
+            
+            const year1 = data1[2];
+            const year2 = data2[2];
+
+            let newDate1 = new Date(`${meses[month1-1]} ${day1}, ${year1}`);
+            let newDate2 = new Date(`${meses[month2-1]} ${day2}, ${year2}`);
+
+            let mm1 = newDate1.getTime();
+            let mm2 = newDate2.getTime();
+            let diff;
+            let days;
+            if(mm1 > mm2){
+                diff = mm1-mm2;
+                days = Math.round(diff/(1000*60*60*24));
+            }else{
+                diff = mm2-mm1;
+                days = Math.round(diff/(1000*60*60*24));
+            }
+            
+            result.innerHTML = `La diferencia entre milisegundos es: ${diff} y la cantidad de días es ${days}`;
+            
+        }
+    </script>
+</body>
+
+</html>

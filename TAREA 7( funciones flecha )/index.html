@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label>Cantidad</label>
+    <input type="text" id="e1_cant">
+    <label>Precio Unidad</label>
+    <input type="text" id="e1_pu">
+    <label>Porcentaje</label>
+    <select id="e1_porcentaje">
+        <option value="6">6%</option>
+        <option value="12">12%</option>
+        <option value="18">18%</option>
+    </select>
+    <p id="e1_pt">Precio total: </p>
+    <button onclick="getPrecioTotal(document.getElementById('e1_cant').value, document.getElementById('e1_pu').value, document.getElementById('e1_porcentaje').value, document.getElementById('e1_pt'))">Calcular</button>
+    <br/>
+    <br/>
+    <label>Cantidad</label>
+    <input type="text" id="e2_cant">
+    <label>Precio Unidad</label>
+    <input type="text" id="e2_pu">
+    <label>Porcentaje</label>
+    <select id="e2_porcentaje">
+        <option value="6">6%</option>
+        <option value="12">12%</option>
+        <option value="18">18%</option>
+    </select>
+    <p id="e2_pt">Precio total: </p>
+    <button onclick="getPrecioTotal(document.getElementById('e2_cant').value, document.getElementById('e2_pu').value, document.getElementById('e2_porcentaje').value, document.getElementById('e2_pt'))">Calcular</button>
+    <br/>
+    <br/>
+    <label>Cantidad</label>
+    <input type="text" id="e3_cant">
+    <label>Precio Unidad</label>
+    <input type="text" id="e3_pu">
+    <label>Porcentaje</label>
+    <select id="e3_porcentaje">
+        <option value="6">6%</option>
+        <option value="12">12%</option>
+        <option value="18">18%</option>
+    </select>
+    <p id="e3_pt">Precio total: </p>
+    <button onclick="getPrecioTotal(document.getElementById('e3_cant').value, document.getElementById('e3_pu').value, document.getElementById('e3_porcentaje').value, document.getElementById('e3_pt'))">Calcular</button>
+    <br/>
+    <br/>
+    <button onclick="borrar()">Borrar</button>
+    <script>
+        var getPrecioTotal = (cantidad, precio, porcentaje, result) =>{
+            precio = precio - (precio*(porcentaje/100));
+            
+            precioTotal = Number.parseFloat(cantidad*precio).toFixed(2);
+
+            result.innerHTML = `Precio total: ${precioTotal}`;
+        }
+
+        var borrar = () => {
+            document.getElementById("e1_cant").value = "";
+            document.getElementById("e1_pu").value = "";
+            document.getElementById("e1_porcentaje").value = "6";
+            document.getElementById("e2_cant").value = "";
+            document.getElementById("e2_pu").value = "";
+            document.getElementById("e2_porcentaje").value = "6";
+            document.getElementById("e3_cant").value = "";
+            document.getElementById("e3_pu").value = "";      
+            document.getElementById("e3_porcentaje").value = "6";
+        }
+
+        
+
+ 
+    </script>
+</body>
+</html>

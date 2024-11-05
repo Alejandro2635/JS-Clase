@@ -1,0 +1,37 @@
+.baja {
+    background-color: red;
+}
+
+.normal {
+    background-color: green;
+}
+
+.alta {
+    background-color: aqua;
+}
+
+table {
+    background: rgba(12, 20, 20, 30);
+    width: 30%;
+    border-collapse: collapse;
+    text-align: center;
+    margin-top: 30px;
+}
+
+th {
+    background-color: rgba(5, 5, 5, 95);
+    height: 35px;
+    color: rgb(120, 120, 120);
+}
+
+td {
+    color: black;
+    height: 30px;
+}
+
+th:hover {
+    background-color: rgba(20, 20, 20, 90);
+}
+
+
+

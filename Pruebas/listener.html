@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="texto">
+    <p id="info"></p>
+    <script>
+        var words = [
+            "Manzana", "Napolitana", "Mazorca", "Rosa", "Camino", "Mariposa", "Libertad", "Montaña", "Luz", "Cielo",
+            "Estrella", "Bicicleta", "Guitarra", "Selva", "Flor", "Oceano", "Felicidad", "Aventura", "Sol", "Luna",
+            "Amistad", "Caramelo", "Playa", "Río", "Nieve", "Chocolate", "Fuego", "Bosque", "Reloj", "Destino",
+            "Papel", "Estadio", "Libro", "Poesía", "Escuela", "Universo", "Constelación", "Melodía", "Sueño", "Magia",
+            "Éxito", "Cometa", "Noche", "Espacio", "Cascada", "Beso", "Tranquilidad", "Paisaje", "Fantasía", "Espejo",
+            "Caminar", "Sonrisa", "Inspiración", "Puente", "Encuentro", "Viaje", "Horizonte", "Silencio", "Lago", "Rocío",
+            "Mar", "Recuerdo", "Ilusión", "Verso", "Danza", "Colibrí", "Recuerdo", "Abrazo", "Paz", "Amor", "Alegría",
+            "Esperanza", "Crepúsculo", "Niebla", "Destino", "Sombra", "Camino", "Misterio", "Relámpago", "Tormenta", "Fruta",
+            "Lágrima", "Risa", "Encanto", "Música", "Colina", "Frescura", "Pasión", "Amanecer", "Atardecer", "Eco",
+            "Manantial", "Fragancia", "Templo", "Cascada", "Piedra", "Río", "Montaña", "Calma", "Armonía", "Pintura"
+        ];
+
+        
+        document.getElementById("texto").addEventListener("input", function() {
+            showWords(getWords(document.getElementById('texto').value));
+        });
+        
+        function showWords(words) {
+            console.log(words);
+            let html = ""; 
+            html = words.join(", ");
+            document.getElementById('info').innerHTML = html;
+        }
+
+        function getWords(text) {
+            let newWords = [];
+            if(text.length > 0){
+                words.forEach(word => {
+                    let chars = "";
+                    for(let i = 0; i < text.length; i++) {
+                        chars += word[i];
+                    }
+                    if (text === chars) {
+                        newWords.push(word);
+                    }
+                });
+            } 
+            return newWords;
+        }
+    </script>
+</body>
+</html>

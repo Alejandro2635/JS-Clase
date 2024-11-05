@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var array_numbers = [6,1,2,3,4,5];
+
+        console.log(array_numbers.toString());
+
+        console.log(array_numbers.join("/"));
+
+        array_numbers.push(6);
+
+        console.log(`Push 6: ${array_numbers.toString()}`)
+
+        array_numbers.pop(6);
+        
+        console.log(`Pop 6: ${array_numbers.toString()}`)
+
+        array_numbers.forEach(element => { console.log(element); });
+
+        var multiplicados = array_numbers.map((number)=> number*2);
+        
+        console.log(multiplicados.toString());
+
+        var mayores_3 = array_numbers.filter((number) => number >3);
+
+        console.log(mayores_3.toString());
+
+        var suma = array_numbers.reduce((result, number) => result + number);
+
+        console.log(suma);
+
+        var mayor_6 = (number) => {return number <40};
+
+        var result1 = array_numbers.every((number) => mayor_6(number));
+
+        console.log(result1);
+
+        var divisible = (number) => {return (number%2)==0;}
+
+        var result2 = array_numbers.some((number) => divisible(number));
+
+        console.log(result2);
+
+        var numeros = [45, 4, 9, 16, 26]
+
+        function sumar(total, valor){
+          return total + valor;
+        }
+        var sumatorio = numeros.reduce(sumar);
+        document.write("<br />" + sumatorio);
+    </script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./script.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <h1>Juego de hundir la flota</h1>
+    <div id="tablero">
+        <script>
+            crearTablero();
+        </script>
+    </div>
+    <br/>
+    <label>Cordenada X</label><br/>
+    <input type="number" id="x"><br/>
+    <label>Cordenada Y</label><br/>
+    <input type="number" id="y"><br/>
+    <input type="button" value="DISPARAR" onclick="disparar(document.getElementById('x').value, document.getElementById('y').value)"><br/>
+    <h2 id="estatus"></h2>
+    <p>Aciertos: </p>
+    <p id="aciertos"></p>
+</body>
+</html>

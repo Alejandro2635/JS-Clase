@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <fieldset>
+        <legend>Reserva</legend>
+        <label>Fecha recogida</label>
+        <input type="date" id="date1">
+        <label>Fecha entrega</label>
+        <input type="date" id="date2">
+    </fieldset>
+    <fieldset>
+        <legend>Modelos disponibles</legend>
+        <input type="radio" id="hanley" name="moto"/>
+        <label>Hanley Davidsoon</label>
+        <input type="radio" id="honda" name="moto"/>
+        <label>Honda</label>
+        <input type="radio" id="yamaha" name="moto"/>
+        <label>Yamaha</label>
+        <input type="button" onclick="getPrice()" value="CALCULAR PRECIO"/>
+    </fieldset>
+    <p>Precio:</p>
+    <p id="price"></p>
+    <script>
+        const date1 = document.getElementById("date1");
+        const date2 = document.getElementById("date2");
+        const hanley = document.getElementById("hanley");
+        const honda = document.getElementById("honda");
+        const yamaha = document.getElementById("yamaha");
+        const precio_hanley = 10;
+        const precio_honda = 15;
+        const precio_yamaha = 20;
+        const precio = document.getElementById("price");
+
+        function getDays(){
+            let newDate1 = new Date(date1.value);
+            let newDate2 = new Date(date2.value);
+
+            let mm1 = newDate1.getTime();
+            let mm2 = newDate2.getTime();
+            let days;
+
+            if(mm1 > mm2){
+                diff = mm1-mm2;
+                days = Math.round(diff/(1000*60*60*24));
+            }else{
+                diff = mm2-mm1;
+                days = Math.round(diff/(1000*60*60*24));
+            }
+            return days;
+
+        }
+
+        function getPrice(){
+            let price;
+            let days = getDays();
+
+            if(hanley.checked){
+                price = precio_hanley*days;
+            }else if(honda.checked){
+                price = precio_honda*days;
+            }else{
+                price = precio_yamaha*days;
+            }
+            
+            precio.innerHTML = price;
+        }
+
+        date1.addEventListener("change", function(){
+            let newDate = new Date(date1.value);
+            newDate.setDate(newDate.getDate()+1);
+
+            var month = newDate.getMonth()+1 < 10 ? `0${newDate.getMonth()+1}` : newDate.getMonth()+1;
+            var day = newDate.getDate() < 10 ? `0${newDate.getDate()}` : newDate.getDate();
+
+            console.log(`${newDate.getFullYear()}-${month}-${day}`);
+            date2.min = `${newDate.getFullYear()}-${month}-${day}`;
+            date2.value=`${newDate.getFullYear()}-${month}-${day}`;
+        });
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var num1 = 1;
+        var num2 = 0;
+        var result = 0;
+        function calculo() {
+            var numberOfTimes = document.getElementById("numbers").value;
+
+            for (var i = 0; i < numberOfTimes; i++) {
+                document.getElementById("result").innerHTML += result + " ";
+                result = num1 + num2;
+                num1 = num2;
+                num2 = result;
+
+            }
+        }
+
+        // 1,1,2,3,5,8
+    </script>
+    <input type="text" id="numbers"></input>
+    <button onclick="calculo()">Calculo</button>
+    <p id="result">Numbers: </p>
+    
+</body>
+
+</html>

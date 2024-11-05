@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./script.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+    <h1>Formulario de Asignaturas y Alumnos</h1>
+    <form>
+        <label>Lista de Asignaturas</label>
+        <br />
+        <input type="text" id="asignaturas" name="asignaturas">
+        <br />
+        <label>Lista de Alumnos</label>
+        <br />
+        <input type="text" id="alumnos">
+        <br />
+        <br />
+        <input type="button" value="Insertar datos"
+        onclick="insertData(document.getElementById('alumnos').value,document.getElementById('asignaturas').value)">
+        <input type="button" value="Mostrar tablas" onclick="showTable()">
+        <div id="table"></div>
+      
+    </form>
+
+    
+</body>
+
+</html>

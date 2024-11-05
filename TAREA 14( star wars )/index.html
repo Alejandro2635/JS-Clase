@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            margin: 0 auto;
+            width: 350px;
+            height: 200px;
+            background-color: rgba(0, 0, 0, 0.8);
+            border-radius: 10px;
+            color: white;
+        }
+        p{
+            position: relative;
+            top: 20%;
+            text-align: center;
+        }
+        #tiempo{
+            font-size: 30px;
+        }
+        *{
+            font-family: sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <p>FIN DE TRIMESTRE:</p>    
+        <p>( 21 - 11 - 2024)</p>
+        <p id="tiempo"></p>
+    </div>
+    <script>
+        const DAY = 1000*60*60*24;
+        const HOUR = 1000*60*60;
+        const MINUTES = 1000*60;
+
+        setInterval(setNewDate,1000);
+        var starWars = new Date('2024-12-21 00:00:00');
+
+        function setNewDate(){
+            let currentDate = new Date();
+            let difference = starWars.getTime() - currentDate.getTime();
+            console.log(difference);
+            document.getElementById('tiempo').innerHTML = `${getData(difference)}`;
+        }
+
+        function getData(ms){
+            let day = Math.trunc((ms/DAY));
+            let restDay = ms % DAY;
+            let hours = Math.trunc(restDay/HOUR);
+            let restHours = restDay % HOUR;
+            let minutes = Math.trunc(restHours / MINUTES);
+            let seconds = Math.trunc((restHours % MINUTES)/1000);
+
+            day = day < 10 ? `0${day}` : day;
+            hours = hours < 10 ? `0${hours}` : hours;
+            minutes = minutes < 10 ? `0${minutes}` : minutes;
+            seconds = seconds < 10 ? `0${seconds}` : seconds;
+            return `${day}d-${hours}h-${minutes}m-${seconds}s`;
+        }
+    </script>
+</body>
+</html>

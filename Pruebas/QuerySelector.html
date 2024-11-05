@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .rojo{
+            color: red;
+        }
+
+        .azul{
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+    <p class="rojo">
+        Hola
+    </p>
+    <p class="rojo">
+        Hola
+    </p>
+    <p class="azul">
+        Hola
+    </p>
+    <p class="azul">
+        Hola
+    </p>
+    <script>
+        const pr = document.querySelector('.rojo');
+        pr.innerHTML = "soy el primer rojo";
+        const pb = document.querySelector('.azul');
+        pb.innerHTML = "soy el primer azul";
+
+        const parrafosRojos = document.querySelectorAll('.rojo');
+        
+        parrafosRojos.forEach(parrafo=>{
+            parrafo.innerHTML = "soy de los rojos";
+        })
+
+
+        const parrafosAzules = document.querySelectorAll('.azul');
+        
+        console.log(parrafosAzules);
+        parrafosA.forEach(parrafo=>{
+            parrafo.innerHTML = "soy de los rojos";
+        })
+
+        
+    </script>
+</body>
+</html>

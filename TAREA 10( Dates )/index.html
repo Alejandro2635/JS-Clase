@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+<body>
+    <input id="date">
+    <input type="button" value="click" onclick="mostrarFecha()">
+    <p id="result"></p>
+
+    <script>
+        const inputDate = document.getElementById("date");
+        const result = document.getElementById("result");
+
+        var mostrarFecha = () => {
+            const meses = ["enero","febrero","marzo","abril","mayo","junio","julio","agosto","septiembre","octubre","noviembre","diciembre"]
+            var data = inputDate.value.split("/").map(word => word.trim());
+
+            var dia = data[0];
+            var mes = data[1];
+            var año = data[2];
+
+            console.log(dia);
+
+            let bisiesto = (function(year){
+                return (year % 400 == 0) ? true : (year%100 == 0) ? false : year % 4 == 0;
+            })(año);
+
+            let correct = true;
+
+            if(dia < 0 || dia > 31){
+                correct = false;
+            }
+            if(mes < 0 || mes > 12){
+                correct = false;
+            }
+            if(mes == 1){
+                if(!bisiesto){
+                    if(dia > 28){
+                        correct = false;
+                    }
+                    
+                }else{
+                    if(dia > 29){
+                        correct = false;
+                    }
+                }
+
+            }
+
+            if(correct){
+                result.innerHTML = `${meses[mes-1]}, del dia ${dia} del año ${año}`;
+            }else{
+                result.innerHTML = "Fecha invalida";
+            }
+
+            console.log(bisiesto);
+            
+        }
+    </script>
+</body>
+
+</html>

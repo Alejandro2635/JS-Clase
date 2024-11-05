@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var numbers = [7, 2, 5, 10, 25, 30,12,9];
+
+        var bigger = 0;
+        function mayor(numbers) {
+            for (var i = 0; i < numbers.length; i++) {
+                if (numbers[i] > bigger) {
+                    bigger = numbers[i];
+                }
+            }
+        }
+
+        var funcion = (function (numbers) {
+            for (var i = 0; i < numbers.length; i++) {
+                if (numbers[i] > bigger) {
+                    bigger = numbers[i];
+                }
+            }
+            return bigger;
+        })(numbers);
+
+        console.log(funcion);
+    </script>
+</body>
+
+</html>

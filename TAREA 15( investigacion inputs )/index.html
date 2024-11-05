@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #card {
+            width: 350px;
+            height: 300px;
+            background-color: rgb(233, 232, 232);
+            border-radius: 20px;
+            margin: 100px auto;
+            box-shadow: 5px 5px 10px rgb(167, 167, 167);
+            padding: 30px;
+
+        }
+
+        .normalInput {
+            margin-top: 5px;
+            margin-bottom: 10px;
+            width: 100%;
+        }
+
+        #accept {
+            width: 30px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div id="card">
+        <form action="" method="get">
+            <label>Nombre de usuario</label>
+            <input type="text" id="nombre" minlength="5" maxlength="20" class="normalInput" required />
+            <label>Password</label>
+            <input type="password" id="password" minlength="5" inputmode="numeric" class="normalInput" required />
+            <label>Telefono (opcional)</label>
+            <input type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{3}" class="normalInput" required />
+            <label id="radioLabel">Selecciona tu género:</label>
+            <div>
+                <input type="radio" id="huey" name="genero" value="hombre" checked />
+                <label for="huey">Hombre</label>
+            </div>
+            <div>
+                <input type="radio" id="dewey" name="genero" value="mujer" />
+                <label for="dewey">Mujer</label>
+            </div>
+            <div>
+                <input type="radio" id="louie" name="genero" value="otro" />
+                <label for="louie">Otro</label>
+            </div>
+            <label>Acepto los terminos de uso</label>
+            <input type="checkbox" id="accept" required />
+
+            <input type="submit" value="Insertar datos"/>
+        </form>
+    </div>
+</body>
+
+</html>

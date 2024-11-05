@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #coordenadas{
+            text-align: center;
+            border-radius: 10px;
+            width: 300px;
+            background-color: rgba(0, 0, 0, 0.8);
+            height: 30px;
+            color: white;
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+    <h2 id="coordenadas"></h2>
+    <script>
+        document.addEventListener('mousemove',getCoordinates);
+        const coordenadas = document.getElementById('coordenadas');
+        var date;
+
+        setInterval(getNewDate,1000);
+        function getNewDate(){
+            date = new Date()
+            let seconds = date.getSeconds() < 10 ? `0${date.getSeconds()}` : date.getSeconds();
+            coordenadas.innerHTML = `${date.getHours()}H | ${date.getMinutes()}M | ${seconds}S`;
+        }
+
+        function getCoordinates(event){
+            coordenadas.style.top = `${event.pageY-50}px`;
+            coordenadas.style.left = `${event.pageX-150}px`;
+        }
+    </script>
+</body>
+</html>

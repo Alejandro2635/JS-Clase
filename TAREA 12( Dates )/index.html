@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="date" id="fecha" onchange="newDate()" value="2018-07-22">
+    <script>
+        const inputFecha = document.getElementById("fecha");
+
+        function currentDate(){
+            var newDate = new Date();
+            
+            var month = newDate.getMonth()+1 < 10 ? `0${newDate.getMonth()+1}` : newDate.getMonth()+1;
+            var day = newDate.getDate() < 10 ? `0${newDate.getDate()}` : newDate.getDate();
+            console.log(month);
+            inputFecha.value = `${newDate.getFullYear()}-${month}-${day}`;
+            inputFecha.min = `${newDate.getFullYear()}-${month}-${day}`;
+
+        }
+        
+        function newDate(){
+            const newDate = inputFecha.value;
+            console.log(newDate);
+        }
+
+        currentDate();
+    </script>
+</body>
+</html>
